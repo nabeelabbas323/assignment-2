@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript | Tasks</title>
+	<style type="text/css">
+		
+		  input[type=text], input[type=password], input[type=date]
+		{
+		  width: 33%;
+		  padding: 15px;
+		  margin: 5px 0 22px 0;
+		  display: inline-block;
+		  border: none;
+		  background: #f1f1f1;
+		  text-align: center; 
+		  border-radius: 8px;
+		}
+		input[type=number]
+		{
+			text-align: center 2px;
+		}
+		input[type=date]
+		{
+			text-align:right ;
+		}
+
+		input[type=text]:focus, input[type=password]:focus, input[type=date]:focus 
+		{
+		  background-color: #ddd;
+		  outline: none;
+		  border-radius: 16px;
+		}
+
+		input[type=checkbox]
+		{
+			font-family: Arial, Helvetica, sans-serif;;
+			color: #fff;
+			font-weight: 900;
+			font-style: oblique;
+		}
+
+		input[id="name"], input[id="password"], input[id="city"]
+		{
+			margin-right: 20px;
+		}
+
+		input[id="email"]
+		{
+			width: 79%;
+		}
+
+
+/*sign in button*/
+		button {
+		  background-color:#8086FC ;
+		  color: black;
+		  padding: 5px 5px;
+		  margin: 6px 0;
+		  border: none;
+		  cursor: pointer;
+		  width: 86%;
+		  height: 46px;
+		  opacity: 2;
+		  border-radius: 12px;
+		}
+
+		button:hover {
+		  background-color:#252981;
+		  color: white;
+		  padding: 5px 5px;
+		  margin: 10px 0;
+		  border: none;
+		  cursor: pointer;
+		  width: 88%;
+		  height: 55px;
+		  opacity: 50;
+		  -webkit-transition: width 0.2s, height 0.2s; 
+   		 transition: width 0.2s, height 0.2s;
+   		 transition-timing-function: linear;
+   		 cursor:pointer;
+		}
+
+		.container2 {
+			padding: 50px;
+		    background-color: #191B1B;
+		    border-radius: 10px;
+		    height: 400px;
+		    width: 400px;
+		    background:#222222;
+		    
+		}
+		.container {
+		  padding: 15px;
+		  background-image: linear-gradient(to bottom, #0D80FE , #D4D5D6);
+		}
+
+		h1{
+			 font-size: 28px;
+		    color: #fff;
+		    font-weight: 400;
+		    margin-bottom: 15px;
+		    font-style: bold;
+		}
+	
+	</style>
+</head>
+
+<body>
+
+<div class="container" align="center">
+
+	<h1>JOIN US</h1>
+	<div class="container2" align="center">
+	<form>
+		<label></label><input onblur="valid2()" type="text" id="name" placeholder="Name">
+		<label></label><input onblur="valid4()" type="text" id="username" placeholder="Username"><br>
+		<label></label><input onblur="valid6()" type="password" id="password" placeholder="Password">
+		<label></label><input onblur="valid()" type="date" id="dob" placeholder="DOB" ><br>
+		<label></label><input onblur="valid5()" type="text" id="city" placeholder="City">
+		<label></label><input onblur="valid7()" type="text" id="cell" placeholder="Contact Number" ><br>
+		<label></label><input onblur="valid3()" type="text" id="email" placeholder="Email"><br>
+		<button type="button" onclick="addEntry()">BEGIN</button><br>
+		<label style="color: white"><input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me </label><br>
+
+		<p id="wrg" style="color: #FE1417 "></p>
+	</form>
+
+</div>
+</div>
+
+<script type="text/javascript">
+var fl=0;
+var fl2=0;
+var fl3=0;
+var fl4=0;
+var fl5=0;
+var fl6=0;
+var fl7=0;
+
+var nam;
+var usr;
+var pswrd;
+var birth;
+var place;
+var mail;
+var num;
+	function addEntry()
+	{
+		if(fl=='1'&&fl2=='1'&&fl3=='1'&&fl4=='1'&&fl5=='1'&&fl6=='1'&&fl7=='1'){
+			/*var age = document.getElementById("age").value;
+			var name = document.getElementById("name").value;
+			var username = document.getElementById("username").value;
+			var email = document.getElementById("email").value;
+			tBody = document.getElementById("table_body");
+			var row = tBody.insertRow(tBody.rows.length);
+			var col1,col2,col3,col4;
+			col1 = row.insertCell(0);
+			col2 = row.insertCell(1);
+			col3 = row.insertCell(2);
+			col4 = row.insertCell(3);
+			col1.innerHTML = age;
+			col2.innerHTML = name;
+			col3.innerHTML = username;
+			col4.innerHTML = email;*/
+		}
+		else
+		{
+			document.getElementById("wrg").innerHTML="ERROR";
+		}
+	}
+
+	function valid()
+	{	
+			birth =document.getElementById("dob").value;
+			if(regage.test(birth))
+		{
+			document.getElementById('ap').innerHTML="valid";
+			fl=1;
+		}
+		else
+		{
+			document.getElementById("ap").innerHTML="invalid";
+			fl=0;
+		}
+	}
+
+	function valid2()
+	{	
+			var regname= /^[a-zA-Z]{1,30}$/
+			nam =document.getElementById("name").value;
+			if(regname.test(nam))
+		{
+			document.getElementById("bp").innerHTML="valid";
+			fl2=1;
+		}
+		else
+		{
+			document.getElementById("bp").innerHTML="invalid";
+			fl2=0;
+		}
+	}
+
+	function valid3()
+	{	
+			var regemail= /^\w([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+			mail =document.getElementById("email").value;
+			if(regemail.test(mail))
+		{
+			document.getElementById("cp").innerHTML="valid";
+			fl3=1;
+		}
+		else
+		{
+			document.getElementById("cp").innerHTML="invalid";
+			fl3=0;
+		}
+	}
+
+	function valid4()
+	{	
+			var regusername= /^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/
+			usr =document.getElementById("username").value;
+			if(regname.test(usr))
+		{
+			document.getElementById("usp").innerHTML="valid";
+			fl4=1;
+		}
+		else
+		{
+			document.getElementById("usp").innerHTML="invalid";
+			fl4=0;
+		}
+	}
+
+	function valid5()
+	{	
+			var regcity= /^[a-zA-Z]{1,25}$/
+			place =document.getElementById("city").value;
+			if(regname.test(place))
+		{
+			document.getElementById("dp").innerHTML="valid";
+			fl5=1;
+		}
+		else
+		{
+			document.getElementById("dp").innerHTML="invalid";
+			fl5=0;
+		}
+	}
+
+	function valid6()
+	{	
+			var regpass= /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
+			pswrd =document.getElementById("password").value;
+			if(regname.test(pswrd))
+		{
+			document.getElementById("pp").innerHTML="valid";
+			fl6=1;
+		}
+		else
+		{
+			document.getElementById("pp").innerHTML="invalid";
+			fl6=0;
+		}
+	}
+
+	function valid7()
+	{	
+			var regcell= /^([0|\+[0-9]{1,5})?([7-9][0-9]{9})$/
+			num =document.getElementById("cell").value;
+			if(regname.test(num))
+		{
+			document.getElementById("pp").innerHTML="valid";
+			fl7=1;
+		}
+		else
+		{
+			document.getElementById("pp").innerHTML="invalid";
+			fl7=0;
+		}
+	}
+	
+</script>
+	
+</body>
+</html>
